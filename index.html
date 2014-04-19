@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Nicemodal - Jquery Plugin</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="You are looking at the 9GAG.tv! 9GAG.tv is the easiest way to have fun!"/>
+        <meta name="keywords" content="nicemodal, nice modal, jquery, plugin, modal, window, light, ajax"/>
+
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="shortcut icon" href="favicon.png" />
+
+        <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true"></script>
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="css/main.css">
+
+        <link rel="stylesheet" href="lib/jquery-nicemodal-1.0/jquery-nicemodal.css">
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+    </head>
+    <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+        <div style="background-color: #EEE; padding: 30px 0 50px 0;font-size: 16px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Nicemodal</h1>
+                        <p class="" style="color: ;font-size: 16px;">
+                            Levíssimo plugin de Jquery que carrega uma página interna via ajax em uma janela modal responsiva. Não 
+                        </p>
+                        <a href="dist/jquery-nicemodal-1.0.rar" class="btn btn-default btn-lg">
+                            Download Nicemodal v1.0
+                        </a>
+                    </div>
+                </div>
+            </div>            
+        </div>
+
+        <br>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <h3>Demo</h3>
+                    <p class="">
+                        Clique no botão abaixo para visualizar a janela modal com as opções default. Você pode conferir as opções disponiveis <a href="#opcoes">clicando aqui</a>. Após abri-la redimensione o seu navegador ou abra esta página no seu disposito móvel para ver como ela se comporta em telas estreitas.
+                    </p>
+                    <button
+                        data-url="pagina-contato.html"
+                        id="nicemodal"
+                        class="btn btn-primary">
+                        Abrir modal
+                    </button>
+                    
+                    <br><br>
+
+                    <h3>Como usar</h3>
+                    <!-- Instruções de uso-->
+                    <p>Inclua os arquivos .css e .js do plugin na página.</p>
+
+                    <br>
+                    
+                    <p>
+                        Inicie o plugin no elemento ou a um grupo deles. O plugin usará como url a ser chamada o que estiver no <code>href</code> para <code>A</code> e o atributo <code>data-url</code> para <code>button</code>.
+                    </p>
+
+                    <pre class="prettyprint">
+$('a#nicemodal, button#nicemodal').nicemodal({
+//Veja mais abaixo opções que podem ser incluidas aqui.
+});
+
+&lt;a href="pagina.html" id="nicemodal"&gt;
+    Abre modal
+&lt;/a&gt;
+&lt;button data-url="pagina.html" type="button" id="nicemodal"&gt;
+    Abre modal
+&lt;/button&gt;
+                    </pre> 
+
+                    <br>
+
+                    <p>
+                        Se você precisar abrir ou fechar a janela modal via programação basta chamar os métodos públicos do plugin <code>openModal</code> ou <code>closeModal</code> da seguinte forma:
+
+                        <pre class="prettyprint">
+&lt;!-- Para abrir --&gt;                        
+$().nicemodal('openModal', 'contato.html', {//opções aqui});
+&lt;!-- Para fechar--&gt;                        
+$().nicemodal('closeModal');
+                        </pre>
+                    </p>
+
+                    <br>
+
+                    <h3 id="opcoes">Opções</h3>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="width: 200px;">Opção</th>
+                                    <th style="width: 180px;">Default</th>
+                                    <th>Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Width
+                                    </td>
+                                    <td>
+                                        600px (String)
+                                    </td>
+                                    <td>
+                                        Largura da janela modal, sempre deve ser especificada. Caso a largura do navegador seja menor que a largura especificada ela receberá a medida de 90% com 5% de margem para cada lado.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        KeyCodeToClose
+                                    </td>
+                                    <td>
+                                        27 (Int) <kbd>Esc</kbd>
+                                    </td>
+                                    <td>
+                                        Código da tecla que irá fechar a janela modal, caso não queira que nenhuma tecla feche a janela, usar null. Você pode ver ver os códigos das teclas disponíveis <a href="http://css-tricks.com/snippets/javascript/javascript-keycodes/" target="_blank">neste link</a>.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        DefaultCloseButton
+                                    </td>
+                                    <td>
+                                        True (Boolean)
+                                    </td>
+                                    <td>
+                                        Habilita ou sesabilita o botão de fechar padrão do Plugin.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        closeOnClickOverlay
+                                    </td>
+                                    <td>
+                                        True (Boolean)
+                                    </td>
+                                    <td>
+                                        Habilita ou desabilita o fechamento da janela modal clicando fora da janela.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        closeOnDbClickOverlay
+                                    </td>
+                                    <td>
+                                        True (Boolean)
+                                    </td>
+                                    <td>
+                                        Habilita ou desabilita o fechamento da janela modal dando um duplo click fora da janela.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onOpenModal
+                                    </td>
+                                    <td>
+                                        null (Função)
+                                    </td>
+                                    <td>
+                                        Função executada assim que a janela modal estiver completamente aberta.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onCloseModal
+                                    </td>
+                                    <td>
+                                        null (Função)
+                                    </td>
+                                    <td>
+                                        Função executada assim que a janela modal estiver completamente fechada.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- table-responsive -->
+                </div><!-- col-lg-12 -->
+            </div>
+        </div>
+        <div style="margin-top: 100px;background-color: #EEE; padding: 30px 0 20px 0;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="text-muted">
+                            Código sob a licença <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>, documentação sob <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0.</a>
+                        </p>
+                        <ul class="list-inline">
+                           <li>
+                                <a href="http://twitter.com/danieldrope" target="_blank">Contato (@danieldrope)</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/danielfpedro/nicemodal/" target="_blank">Github</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/danielfpedro/nicemodal/issues" target="_blank">Issues</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+
+        <script src="lib/jquery-nicemodal-1.0/jquery-nicemodal.js"></script>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-50124767-1', 'danielfpedro.github.io');
+            ga('send', 'pageview');
+
+        </script>
+    </body>
+</html>
